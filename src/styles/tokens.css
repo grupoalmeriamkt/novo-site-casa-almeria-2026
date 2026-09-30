@@ -1,0 +1,112 @@
+/*
+ * Design tokens — Casa Almeria
+ * Cores oficiais: manual (miniMIV p.14). Branco quente e preto: ver docs/decisoes.md (#4, #5).
+ * Breakpoints (usar nos media queries, CSS não aceita variáveis ali):
+ *   mobile < 768px · tablet 768–1199px · desktop ≥ 1200px
+ */
+:root {
+  /* color — paleta */
+  --c-azul: #11284b;
+  --c-amarelo: #f2ba72;
+  --c-verde: #304334;
+  --c-bordo: #5b2f2e;
+  --c-vermelho: #d34848;
+  --c-rosa: #ec9cbc;
+  --c-azul-claro: #89bfca;
+  --c-oliva: #6d8257;
+  --c-branco: #ffffff;
+  --c-preto: #11141b;
+  --c-creme: #fbf7f0;
+  --c-creme-2: #f4ecdf;
+
+  /* color — semântica */
+  --bg: var(--c-creme);
+  --surface: var(--c-branco);
+  --ink: var(--c-azul);
+  --ink-soft: rgb(17 40 75 / 0.72);
+  --ink-mute: rgb(17 40 75 / 0.52);
+  --line: rgb(17 40 75 / 0.14);
+  --accent: var(--c-amarelo);
+  --on-dark: var(--c-creme);
+  --on-dark-soft: rgb(251 247 240 / 0.72);
+  --line-dark: rgb(251 247 240 / 0.18);
+  --focus: var(--c-amarelo);
+
+  /* type */
+  --font-sans: var(--font-source-sans), "Source Sans 3", system-ui, sans-serif;
+  --font-serif: var(--font-alegreya), "Alegreya", Georgia, serif;
+  --fs-label: 0.75rem;
+  --fs-small: 0.875rem;
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-lead: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem);
+  --fs-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --fs-h2: clamp(2.5rem, 1.6rem + 4vw, 5.75rem);
+  --fs-display: clamp(3.25rem, 1.5rem + 8vw, 10rem);
+  --lh-tight: 0.94;
+  --lh-snug: 1.12;
+  --lh-body: 1.55;
+  --tracking-label: 0.16em;
+  --tracking-title: -0.025em;
+  --measure: 34rem;
+
+  /* spacing (base 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --space-10: 10rem;
+  --section-y: clamp(5rem, 3rem + 8vw, 11rem);
+
+  /* grid / container */
+  --gutter: clamp(16px, 2.4vw, 32px);
+  --columns: 12;
+  --container: 1440px;
+  --page-x: clamp(16px, 4vw, 64px);
+
+  /* radius / border */
+  --radius-s: 4px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+  --border: 1px solid var(--line);
+
+  /* media ratios */
+  --ratio-portrait: 4 / 5;
+  --ratio-tall: 3 / 4;
+  --ratio-landscape: 3 / 2;
+  --ratio-wide: 16 / 9;
+  --ratio-square: 1 / 1;
+
+  /* z-index */
+  --z-base: 0;
+  --z-mid: 5;
+  --z-content: 10;
+  --z-foreground: 20;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-layer: 300;
+
+  /* motion (espelha src/motion/config.ts para transições CSS) */
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.35s;
+  --dur-normal: 0.7s;
+  --dur-slow: 1.2s;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --columns: 4;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  :root {
+    --columns: 8;
+  }
+}

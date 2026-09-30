@@ -1,0 +1,29 @@
+.section {
+  margin: 0 var(--page-x);
+  padding: var(--space-8) 0 var(--section-y);
+  border-top: var(--border);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-5) var(--gutter);
+  align-items: end;
+}
+.title {
+  grid-column: 1 / 7;
+  font-size: var(--fs-h3);
+}
+.body {
+  grid-column: 8 / 13;
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  color: var(--ink-soft);
+}
+.body :global(.link-arrow) {
+  color: var(--ink);
+}
+@media (max-width: 767px) {
+  .title,
+  .body {
+    grid-column: 1 / -1;
+  }
+}

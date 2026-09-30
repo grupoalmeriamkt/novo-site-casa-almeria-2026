@@ -1,0 +1,62 @@
+.section {
+  position: relative;
+  padding: var(--section-y) var(--page-x);
+  background: var(--bg);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+.section > :global(.label) {
+  color: var(--ink-mute);
+}
+.title {
+  font-size: var(--fs-h2);
+  margin-top: var(--space-4);
+  max-width: 12ch;
+}
+
+.flow {
+  margin-top: var(--space-9);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-7);
+  max-width: 44rem;
+}
+.line {
+  font-size: clamp(1.45rem, 1rem + 1.6vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+.visual {
+  width: clamp(160px, 22vw, 280px);
+}
+.cup,
+.dancer {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.photo {
+  width: min(100%, 24rem);
+  border-radius: var(--radius-m);
+}
+
+.close {
+  margin-top: var(--space-9);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+}
+.selo {
+  width: clamp(120px, 14vw, 190px);
+  color: var(--c-azul);
+  overflow: visible;
+}
+.signature {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  letter-spacing: var(--tracking-title);
+  line-height: 1;
+  max-width: 14ch;
+}

@@ -1,0 +1,289 @@
+@import "../styles/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+  background: var(--bg);
+}
+html[data-layer] {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  letter-spacing: var(--tracking-title);
+  line-height: var(--lh-tight);
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+/* Alegreya só para destacar palavras (manual: "com cautela") */
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+address {
+  font-style: normal;
+}
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--c-amarelo);
+  color: var(--c-azul);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: calc(var(--z-layer) + 1);
+  padding: 0.6rem 1rem;
+  background: var(--c-azul);
+  color: var(--c-creme);
+  border-radius: var(--radius-pill);
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+.label {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* SplitText: máscaras com folga para descendentes */
+[data-split] > * {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* ---------- página (camada Pedir recua o fundo) ---------- */
+.page {
+  transform-origin: 50% var(--layer-origin, 50vh);
+  transition:
+    transform 0.9s var(--ease-reveal),
+    filter 0.9s var(--ease-reveal);
+}
+html[data-layer="open"] .page {
+  transform: scale(0.965);
+  filter: saturate(0.8);
+}
+html[data-layer="open-flat"] .page {
+  filter: saturate(0.8);
+}
+
+/* ---------- links ---------- */
+.link-line {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.6s var(--ease-reveal);
+}
+.link-line:hover,
+.link-line[aria-current="page"] {
+  background-size: 100% 1px;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.link-arrow__label {
+  background: linear-gradient(currentColor, currentColor) 100% 100% / 100% 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.7s var(--ease-reveal);
+}
+.link-arrow:hover .link-arrow__label {
+  background-size: 0 1px;
+  background-position: 100% 100%;
+  animation: redraw 0.9s var(--ease-reveal) 0.25s forwards;
+}
+@keyframes redraw {
+  from {
+    background-size: 0 1px;
+    background-position: 0 100%;
+  }
+  to {
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+}
+.arrow {
+  width: 22px;
+  height: auto;
+  flex: none;
+  transition: transform 0.6s var(--ease-reveal);
+}
+.link-arrow:hover .arrow,
+.btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* rótulo que troca verticalmente */
+.swap {
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.swap > span {
+  grid-area: 1 / 1;
+  transition: transform 0.55s var(--ease-reveal);
+}
+.swap__b {
+  transform: translateY(105%);
+}
+a:hover .swap__a,
+button:hover .swap__a {
+  transform: translateY(-105%);
+}
+a:hover .swap__b,
+button:hover .swap__b {
+  transform: none;
+}
+
+.ifood-badge {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 1.85em;
+  height: 1.85em;
+  border-radius: 0.5em;
+  background: #ea1d2c;
+  vertical-align: middle;
+}
+.link-arrow .ifood-badge {
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 0.4em;
+}
+.ifood-badge svg {
+  width: 74%;
+  height: auto;
+}
+.ifood-wordmark svg {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: -0.12em;
+}
+
+/* botão principal */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: 1.05rem 1.6rem 1.05rem 1.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--c-azul);
+  color: var(--c-creme);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition:
+    background-color var(--dur-fast) var(--ease-smooth),
+    color var(--dur-fast) var(--ease-smooth);
+}
+.btn:hover {
+  background: var(--c-amarelo);
+  color: var(--c-azul);
+}
+.btn--light {
+  background: var(--c-creme);
+  color: var(--c-azul);
+}
+.btn__label {
+  display: inline-block;
+}
+.btn--icon {
+  padding-left: 0.75rem;
+}
+
+/* ---------- intro: esconde antes do JS só quando haverá animação ---------- */
+html.js-motion [data-intro],
+html.js-motion [data-intro-header] {
+  visibility: hidden;
+}
+html.motion-failsafe [data-intro],
+html.motion-failsafe [data-intro-header] {
+  visibility: visible !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .page {
+    transition: none;
+  }
+}

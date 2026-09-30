@@ -1,0 +1,17 @@
+.intro {
+  padding: clamp(130px, 22vh, 220px) var(--page-x) var(--space-8);
+  display: grid;
+  gap: var(--space-5);
+}
+.intro > :global(.label) {
+  color: var(--ink-mute);
+}
+.title {
+  font-size: var(--fs-display);
+  max-width: 12ch;
+}
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}

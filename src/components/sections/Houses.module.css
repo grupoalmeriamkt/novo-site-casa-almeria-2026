@@ -1,0 +1,107 @@
+.section {
+  position: relative;
+  padding-top: var(--section-y);
+  background: var(--bg);
+}
+.head {
+  padding: 0 var(--page-x);
+}
+.title {
+  font-size: var(--fs-h2);
+  max-width: 14ch;
+}
+
+.stage {
+  position: relative;
+  margin-top: var(--space-8);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.pane {
+  position: relative;
+  min-height: min(88vh, 900px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--on-dark);
+}
+.pane::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgb(8 18 36 / 0.62));
+  pointer-events: none;
+}
+.media {
+  position: absolute !important;
+  inset: 0;
+}
+.info {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--page-x) var(--space-7);
+  max-width: 34rem;
+}
+.info :global(.label) {
+  color: var(--c-amarelo);
+}
+.name {
+  font-size: var(--fs-h2);
+}
+.address,
+.hours {
+  font-size: var(--fs-small);
+  color: var(--on-dark-soft);
+}
+.hours {
+  display: grid;
+}
+.links {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-6);
+}
+
+/* Desktop com motion: os dois lados disputam o espaço (clip-path, sem relayout) */
+.stage[data-split="on"] {
+  display: block;
+  height: min(88vh, 900px);
+}
+.stage[data-split="on"] .pane {
+  position: absolute;
+  inset: 0;
+}
+.stage[data-split="on"] .left {
+  clip-path: inset(0 calc(100% - var(--split, 50%)) 0 0);
+}
+.stage[data-split="on"] .right {
+  clip-path: inset(0 0 0 var(--split, 50%));
+  justify-content: flex-end;
+}
+.stage[data-split="on"] .right .info {
+  text-align: right;
+  justify-items: end;
+}
+.stage[data-split="on"]::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: var(--split, 50%);
+  width: 1px;
+  background: rgb(251 247 240 / 0.5);
+}
+
+@media (max-width: 767px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+  .pane {
+    min-height: 78vh;
+  }
+}

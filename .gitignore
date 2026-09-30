@@ -1,0 +1,24 @@
+# dependências e build
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# segredos (a chave do Maps vai como variável de ambiente na Vercel)
+.env*.local
+.env
+
+# originais pesados e material bruto de marca (fora do repositório público)
+drive-download-*/
+Branding Completo/
+scripts/vectors/out/
+
+# sistema
+.DS_Store
+.vercel
+
+# fotos originais soltas na raiz (as versões web estão em public/media)
+/*.jpg
+/*.JPG
+/*.jpeg

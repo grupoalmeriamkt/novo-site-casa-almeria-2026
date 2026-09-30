@@ -1,0 +1,11 @@
+drive-download-*
+Branding Completo
+node_modules
+.next
+scripts/vectors/out
+.env*.local
+.env
+docs
+/*.jpg
+/*.JPG
+/*.jpeg
