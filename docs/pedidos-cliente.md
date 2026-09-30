@@ -22,7 +22,7 @@ Recebemos 60 fotos de ambiente das duas unidades. 30 já estão no site; o mapa 
 | Link do **menu Get In do Noroeste** | O site atual aponta o "menu Noroeste" para um Google Forms. Por enquanto, o botão leva para /menus |
 | **iFood do Noroeste** | Só encontramos o iFood da Asa Sul |
 | Horários por unidade | O site atual publica um horário único (seg–sáb 8h–21h, dom 8h–20h). Estamos usando esse horário nas duas |
-| Razão social e CNPJ | Para o rodapé |
+| Razão social | O CNPJ 45.375.663/0001-29 já está no rodapé; falta a razão social |
 | Playlist no Spotify | Se existir, entra no rodapé |
 
 Já ligados, a partir do site atual: menu Get In da Asa Sul, iFood da Asa Sul, tábuas, cestas e tortas em vendas.grupoalmeria.com.br, Maps das duas unidades, WhatsApp, e-mail de vagas e Instagram @casa_almeria.
@@ -39,3 +39,9 @@ Os vetores foram extraídos do manual em PDF e já funcionam no site. Os origina
 
 - **"pra" ou "para" alimentar corpo e alma?** Os materiais usam as duas formas. O site usa "para", como nos lockups oficiais.
 - **Manifesto:** o texto original fala só da "esquina da asa sul". O site usa trechos neutros, sem os fatos que ainda precisam de confirmação (sino da baguete, queijo premiado etc.). Precisamos de uma versão que inclua o Noroeste.
+
+## 5. Documentos legais
+
+- **Revisão jurídica** dos Termos, da Política de Privacidade e da Política de Cookies (textos base já publicados em /termos, /privacidade e /cookies).
+- **Encarregado de dados (LGPD, art. 41):** indicar um responsável e um e-mail dedicado, por exemplo privacidade@grupoalmeria.com.br. Hoje os documentos apontam para o WhatsApp e para gerente.casa@grupoalmeria.com.br.
+- **Ferramentas de estatística:** quando o GA4 ou o GTM forem instalados, eles já encontram o Consent Mode configurado e respeitam a escolha do visitante.

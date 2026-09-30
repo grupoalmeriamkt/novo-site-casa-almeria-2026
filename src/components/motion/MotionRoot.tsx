@@ -35,11 +35,13 @@ export function MotionRoot() {
         },
       }),
     );
+    // fundo do header quando a página rolou (inclusive no fim dela, sobre o footer)
     const scrolled = ScrollTrigger.create({
-      start: 60,
+      start: 0,
       end: "max",
-      onToggle: (self) => header?.toggleAttribute("data-scrolled", self.isActive),
+      onUpdate: (self) => header?.toggleAttribute("data-scrolled", self.scroll() > 60),
     });
+    header?.toggleAttribute("data-scrolled", window.scrollY > 60);
     ScrollTrigger.sort();
     ScrollTrigger.refresh();
     window.addEventListener("casa:header-theme", apply);

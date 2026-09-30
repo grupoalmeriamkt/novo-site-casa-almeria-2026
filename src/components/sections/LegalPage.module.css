@@ -1,0 +1,68 @@
+.doc {
+  padding: 0 var(--page-x) var(--section-y);
+  max-width: calc(46rem + var(--page-x) * 2);
+}
+.updated {
+  font-size: var(--fs-small);
+  color: var(--ink-mute);
+  padding-top: var(--space-5);
+  border-top: var(--border);
+}
+.section {
+  margin-top: var(--space-7);
+  display: grid;
+  gap: var(--space-3);
+}
+.heading {
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+}
+.section p,
+.section li {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: var(--space-2);
+}
+.section li::marker {
+  color: var(--c-amarelo);
+}
+.prefs {
+  appearance: none;
+  margin-top: var(--space-6);
+  padding: 0.8rem 1.4rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--c-azul);
+  color: var(--c-creme);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.prefs:hover {
+  background: var(--c-amarelo);
+  color: var(--c-azul);
+}
+.more {
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: var(--border);
+  display: grid;
+  gap: var(--space-3);
+}
+.more :global(.label) {
+  color: var(--ink-mute);
+}
+.more ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  font-size: var(--fs-lead);
+}

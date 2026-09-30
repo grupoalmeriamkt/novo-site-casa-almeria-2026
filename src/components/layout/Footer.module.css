@@ -62,16 +62,56 @@
 
 .bottom {
   margin-top: var(--space-8);
-  padding-top: var(--space-4);
+  padding-top: var(--space-5);
   border-top: 1px solid var(--line-dark);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-5) var(--space-6);
+  align-items: center;
   font-size: var(--fs-label);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--on-dark-soft);
 }
+.legalInfo {
+  display: grid;
+  gap: 4px;
+  line-height: 1.6;
+}
+.legalInfo strong {
+  color: var(--on-dark);
+  font-weight: 600;
+}
+.social {
+  justify-self: end;
+  color: var(--on-dark);
+}
+.legal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+.legal a,
+.prefs {
+  color: var(--on-dark);
+}
+.prefs {
+  appearance: none;
+  padding: 0 0 2px;
+  border: 0;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: background-size 0.6s var(--ease-reveal);
+}
+.prefs:hover {
+  background-size: 100% 1px;
+}
 .cup {
+  justify-self: end;
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.95rem;
@@ -88,6 +128,10 @@
     grid-template-columns: 1fr;
   }
   .bottom {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .social,
+  .cup {
+    justify-self: start;
   }
 }

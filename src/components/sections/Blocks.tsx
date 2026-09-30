@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IfoodIcon } from "@/components/brand/IfoodIcon";
 import { Choreography } from "@/components/motion/Choreography";
 import { ArrowLink } from "@/components/ui/Links";
+import { SocialLinks } from "@/components/ui/Social";
 import { TrackedLink } from "@/components/ui/TrackedLink";
 import { SITE, UNITS, unitAddressLine } from "@/content/site";
 import styles from "./Blocks.module.css";
@@ -94,8 +95,8 @@ export function ContactList() {
           </ArrowLink>
         </li>
         <li data-reveal="up">
-          <span className="label">Instagram</span>
-          <ArrowLink href={SITE.instagram.href}>{SITE.instagram.handle}</ArrowLink>
+          <span className="label">Nas redes</span>
+          <SocialLinks />
         </li>
         <li data-reveal="up">
           <span className="label">Trabalhe conosco</span>

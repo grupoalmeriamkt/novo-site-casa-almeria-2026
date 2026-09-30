@@ -3,6 +3,8 @@ import { Alegreya, Source_Sans_3 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MotionRoot } from "@/components/motion/MotionRoot";
+import { CookieConsent } from "@/components/layout/CookieConsent";
+import { CONSENT_BOOT } from "@/lib/consent";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -37,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: motionBoot }} />
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOT + motionBoot }} />
       </head>
       <body>
         <a href="#conteudo" className="skip-link">
@@ -48,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="conteudo">{children}</main>
           <Footer />
         </div>
+        <CookieConsent />
         <MotionRoot />
       </body>
     </html>

@@ -14,11 +14,26 @@ export const SITE = {
   locale: "pt_BR",
   // fonte: casaalmeria.com.br (set/2026)
   instagram: { handle: "@casa_almeria", href: "https://www.instagram.com/casa_almeria/" },
+  facebook: "https://www.facebook.com/profile.php?id=100087201526665",
+  linkedin: "https://www.linkedin.com/company/grupo-almeria/about/",
   whatsapp: { display: "61 99582-8131", href: "https://wa.me/5561995828131" },
   vendas: "https://vendas.grupoalmeria.com.br",
   careersEmail: "gerente.casa@grupoalmeria.com.br",
-  legalName: null as string | null, // TODO razão social + CNPJ
+  legalName: null as string | null, // TODO razão social
+  cnpj: "45.375.663/0001-29",
 } as const;
+
+export const SOCIAL = [
+  { id: "instagram", label: "Instagram", href: SITE.instagram.href },
+  { id: "facebook", label: "Facebook", href: SITE.facebook },
+  { id: "linkedin", label: "LinkedIn", href: SITE.linkedin },
+] as const;
+
+export const LEGAL_LINKS = [
+  { label: "Termos e Condições", href: "/termos" },
+  { label: "Política de Privacidade", href: "/privacidade" },
+  { label: "Política de Cookies", href: "/cookies" },
+] as const;
 
 export type Weekday = "Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa" | "Su";
 export type OpeningHours = { days: Weekday[]; opens: string; closes: string; label: string };

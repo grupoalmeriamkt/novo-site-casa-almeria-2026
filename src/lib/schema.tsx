@@ -27,7 +27,7 @@ export function unitSchema(u: Unit) {
       opens: h.opens,
       closes: h.closes,
     })),
-    sameAs: [SITE.instagram.href],
+    sameAs: [SITE.instagram.href, SITE.facebook, SITE.linkedin],
   };
 }
 
@@ -40,7 +40,8 @@ export function organizationSchema() {
     name: SITE.name,
     url: SITE.url,
     slogan: SITE.slogan,
-    sameAs: [SITE.instagram.href],
+    taxID: SITE.cnpj,
+    sameAs: [SITE.instagram.href, SITE.facebook, SITE.linkedin],
     subOrganization: UNITS.map((u) => ({ "@id": `${SITE.url}/unidades#${u.id}` })),
   };
 }

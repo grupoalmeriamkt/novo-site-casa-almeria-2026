@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Choreography } from "@/components/motion/Choreography";
+import { SocialLinks } from "@/components/ui/Social";
 import { TrackedLink } from "@/components/ui/TrackedLink";
+import { CookiePrefsButton } from "./CookieConsent";
 import { CUP_MESSAGES } from "@/content/home";
-import { NAV, SITE, UNITS, unitAddressLine } from "@/content/site";
+import { LEGAL_LINKS, NAV, SITE, UNITS, unitAddressLine } from "@/content/site";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const a = UNITS[0].address;
+  const matriz = [a.street, a.district, a.city, a.region, a.postalCode].filter(Boolean).join(", ");
   return (
     <Choreography name="footer" as="footer" className={styles.footer} data-header-theme="dark" data-intensity="hero">
       <div className={styles.top}>
@@ -79,10 +83,30 @@ export function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <p>
-          © {year} {SITE.name}
-          {SITE.legalName ? ` · ${SITE.legalName}` : ""}
-        </p>
+        <div className={styles.legalInfo}>
+          <p>
+            <strong>{SITE.name} Asa Sul</strong> · {matriz}
+          </p>
+          <p>
+            CNPJ {SITE.cnpj}
+            {SITE.legalName ? ` · ${SITE.legalName}` : ""} · © {year} {SITE.name}
+          </p>
+        </div>
+        <SocialLinks className={styles.social} />
+        <nav className={styles.legal} aria-label="Documentos">
+          <ul>
+            {LEGAL_LINKS.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="link-line">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <CookiePrefsButton className={styles.prefs} />
+            </li>
+          </ul>
+        </nav>
         <p className={styles.cup} data-cup="">
           {CUP_MESSAGES[0]}
         </p>
