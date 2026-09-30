@@ -22,3 +22,4 @@ scripts/vectors/out/
 /*.jpg
 /*.JPG
 /*.jpeg
+.env*
